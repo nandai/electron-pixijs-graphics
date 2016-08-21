@@ -30,7 +30,8 @@ class MainView
             backgroundColor: parseInt('000040', 16)
         };
 
-        this.renderer = PIXI.autoDetectRenderer(width, height, options);
+        const noWebGL = (process.platform === 'darwin');
+        this.renderer = PIXI.autoDetectRenderer(width, height, options, noWebGL);
         const canvas = this.renderer.view;
         document.body.appendChild(canvas);
 
