@@ -5,16 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run tsd && npm run gulp",
-    "gulp": "gulp",
-    "tsd": "tsd install"
+    "build": "npm run gulp",
+    "gulp": "gulp"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-typescript": "^2.13.6",
-    "tsd": "^0.6.5"
+    "gulp-typescript": "^3.1.6",
+    "typescript": "~2.1.4"
   },
   "dependencies": {
+    "@types/electron": "^1.4.34",
+    "@types/pixi.js": "^4.4.0",
     "pixi.js": "^4.4.1"
   },
   "keywords": [],

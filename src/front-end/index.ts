@@ -24,7 +24,7 @@ class MainView
         const width =  10;//document.documentElement.clientWidth; 
         const height = 10;//document.documentElement.clientHeight; 
 
-        const options : PIXI.RendererOptions =
+        const options : PIXI.IRendererOptions =
         {
             antialias: true,
             backgroundColor: parseInt('000040', 16)

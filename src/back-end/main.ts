@@ -1,9 +1,6 @@
 /**
- * (C) 2016 printf.jp
+ * (C) 2016-2017 printf.jp
  */
-
-/// <reference path='../../typings/tsd.d.ts' />;
-
 import electron = require('electron');
 
 /**
