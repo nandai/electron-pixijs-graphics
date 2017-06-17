@@ -1,17 +1,16 @@
 /**
  * (C) 2016-2017 printf.jp
  */
-import electron = require('electron');
+import {app, BrowserWindow, Menu} from 'electron';
 
 /**
  * main
  */
 function main()
 {
-    const app = electron.app;
     app.on('ready', () =>
     {
-        const options : Electron.BrowserWindowOptions =
+        const options : Electron.BrowserWindowConstructorOptions =
         {
             title: 'Graphics',
             width:  800,
@@ -20,14 +19,14 @@ function main()
 //          show: false,
         };
 
-        let wnd = new electron.BrowserWindow(options);
+        let wnd = new BrowserWindow(options);
         const url = `file://${__dirname}/../../index.html`;
 
         wnd.loadURL(url);
         wnd.on('closed', () => wnd = null);
 
         // メニュー設定
-        const menuItems : Electron.MenuItemOptions[] =
+        const menuItems : Electron.MenuItemConstructorOptions[] =
         [
             {
                 label: 'File(&F)',
@@ -54,8 +53,8 @@ function main()
                 ]
             }
         ];
-        const menu = electron.Menu.buildFromTemplate(menuItems);
-        electron.Menu.setApplicationMenu(menu);
+        const menu = Menu.buildFromTemplate(menuItems);
+        Menu.setApplicationMenu(menu);
     });
 
     app.on('window-all-closed', () =>

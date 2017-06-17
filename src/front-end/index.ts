@@ -1,8 +1,9 @@
 /**
  * (C) 2016 printf.jp
  */
-import PIXI =     require('pixi.js');
-import electron = require('electron');
+import {remote} from 'electron';
+
+import PIXI = require('pixi.js');
 
 /**
  * main view
@@ -24,7 +25,7 @@ class MainView
         const width =  10;//document.documentElement.clientWidth; 
         const height = 10;//document.documentElement.clientHeight; 
 
-        const options : PIXI.IRendererOptions =
+        const options : PIXI.RendererOptions =
         {
             antialias: true,
             backgroundColor: parseInt('000040', 16)
@@ -96,7 +97,7 @@ class MainView
         this.animate();
 
         // 起動時のちらつき防止（あまり意味がなかった）
-        const wnd = electron.remote.getCurrentWindow();
+        const wnd = remote.getCurrentWindow();
         wnd.show();
 
         // 起動時のちらつき防止（フェードインでごまかし）
