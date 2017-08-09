@@ -1,5 +1,5 @@
 /**
- * (C) 2016 printf.jp
+ * (C) 2016-2017 printf.jp
  */
 import {remote} from 'electron';
 
@@ -22,8 +22,8 @@ class MainView
     onLoad()
     {
         // スクロールバーの領域が確保されてしまうことがあるので、最初は小さな領域を指定しておく（すぐにリサイズするので問題なし）
-        const width =  10;//document.documentElement.clientWidth; 
-        const height = 10;//document.documentElement.clientHeight; 
+        const width =  10;  // document.documentElement.clientWidth;
+        const height = 10;  // document.documentElement.clientHeight;
 
         const options : PIXI.RendererOptions =
         {
@@ -124,8 +124,8 @@ class MainView
      */
     private onResize()
     {
-        const width =  document.documentElement.clientWidth; 
-        const height = document.documentElement.clientHeight; 
+        const width =  document.documentElement.clientWidth;
+        const height = document.documentElement.clientHeight;
         this.renderer.resize(width, height);
     }
 

@@ -1,5 +1,5 @@
 /**
- * (C) 2016 printf.jp
+ * (C) 2016-2017 printf.jp
  */
 var gulp =       require('gulp');
 var typescript = require('gulp-typescript');
@@ -11,18 +11,13 @@ gulp.task('build', function ()
 {
     var src =
     [
-//      '!./node_modules/**',
         './src/**/*.ts'
     ];
 
-    var tsOptions =
-    {
-        target: 'es6',
-        module: 'commonjs'
-    };
+    const tsProj = typescript.createProject('./tsconfig.json');
 
     gulp.src(src)
-        .pipe(typescript(tsOptions))
+        .pipe(tsProj())
         .pipe(gulp.dest('./app/js'));
 });
 

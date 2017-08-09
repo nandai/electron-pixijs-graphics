@@ -43,12 +43,12 @@ function main()
                     {
                         label: 'Reload(&R)',
                         accelerator: 'CmdOrCtrl+R',
-                        click: function() {wnd.webContents.reload();}
+                        click: () => {wnd.webContents.reload();}
                     },
                     {
                         label: 'Toggle Developer Tools(&T)',
                         accelerator: 'Alt+CmdOrCtrl+I',
-                        click: function() {wnd.webContents.toggleDevTools();}
+                        click: () => {wnd.webContents.toggleDevTools();}
                     },
                 ]
             }
