@@ -1,6 +1,7 @@
 /**
  * (C) 2016-2017 printf.jp
  */
+import bind     from 'bind-decorator';
 import {remote} from 'electron';
 
 import PIXI = require('pixi.js');
@@ -19,6 +20,7 @@ class MainView
     /**
      * load event
      */
+    @bind
     onLoad()
     {
         // スクロールバーの領域が確保されてしまうことがあるので、最初は小さな領域を指定しておく（すぐにリサイズするので問題なし）
@@ -89,10 +91,10 @@ class MainView
         this.thing.position.y = 380 / 2;
 
         // Just click on the stage to draw random lines
-        this.stage.on('click', this.onClick.bind(this));
-        this.stage.on('tap',   this.onClick.bind(this));
+        this.stage.on('click', this.onClick);
+        this.stage.on('tap',   this.onClick);
 
-        window.addEventListener('resize', this.onResize.bind(this));
+        window.addEventListener('resize', this.onResize);
         this.onResize();
         this.animate();
 
@@ -107,6 +109,7 @@ class MainView
     /**
      * click event
      */
+    @bind
     private onClick()
     {
         const g = this.graphics;
@@ -122,6 +125,7 @@ class MainView
     /**
      * resize event
      */
+    @bind
     private onResize()
     {
         const width =  document.documentElement.clientWidth;
@@ -132,6 +136,7 @@ class MainView
     /**
      * アニメーション
      */
+    @bind
     private animate()
     {
         this.count += 0.1;
@@ -149,9 +154,9 @@ class MainView
 
         this.thing.rotation = count * 0.1;
         this.renderer.render(this.stage);
-        requestAnimationFrame(this.animate.bind(this));
+        requestAnimationFrame(this.animate);
     }
 }
 
 const view = new MainView();
-document.addEventListener('DOMContentLoaded', view.onLoad.bind(view));
+document.addEventListener('DOMContentLoaded', view.onLoad);
